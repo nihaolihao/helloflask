@@ -17,6 +17,7 @@ def say_hello():
 def greet(name):
     return f'<h1>Hello, {name}!</h1>'
 
+
 @app.cli.command()
 def hello():
     """Just say hello."""
