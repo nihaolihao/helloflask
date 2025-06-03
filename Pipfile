@@ -13,6 +13,9 @@ email-validator = "*"
 flask-sqlalchemy = "*"
 sendgrid = "*"
 flask-mail = "*"
+flask-moment = "*"
+faker = "*"
+flask-debugtoolbar = "*"
 
 [dev-packages]
 watchdog = "*"
