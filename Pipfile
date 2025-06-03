@@ -10,6 +10,7 @@ flask-ckeditor = "*"
 flask-dropzone = "*"
 flask-wtf = "*"
 email-validator = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 watchdog = "*"
