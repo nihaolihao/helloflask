@@ -11,6 +11,8 @@ flask-dropzone = "*"
 flask-wtf = "*"
 email-validator = "*"
 flask-sqlalchemy = "*"
+sendgrid = "*"
+flask-mail = "*"
 
 [dev-packages]
 watchdog = "*"
