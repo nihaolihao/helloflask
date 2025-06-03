@@ -1,8 +1,9 @@
+import os
 from flask import Flask, flash, redirect, render_template, url_for
 from markupsafe import Markup
 
 app = Flask(__name__)
-app.secret_key = 'dev'
+app.secret_key = os.getenv('SECRET_KEY','secret string')
 # app.jinja_env.variable_start_string = '[['
 # app.jinja_env.variable_end_string = ']]'
 app.jinja_env.trim_blocks = True

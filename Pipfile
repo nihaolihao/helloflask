@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 flask = "*"
 python-dotenv = "*"
+flask-ckeditor = "*"
+flask-dropzone = "*"
+flask-wtf = "*"
+email-validator = "*"
 
 [dev-packages]
 watchdog = "*"

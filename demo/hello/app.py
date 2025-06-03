@@ -18,6 +18,7 @@ def greet(name):
     return f'<h1>Hello, {name}!</h1>'
 
 
+# 新增flask cli命令
 @app.cli.command()
 def hello():
     """Just say hello."""
