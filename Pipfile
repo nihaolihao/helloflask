@@ -14,8 +14,10 @@ flask-sqlalchemy = "*"
 sendgrid = "*"
 flask-mail = "*"
 flask-moment = "*"
-faker = "*"
 flask-debugtoolbar = "*"
+flask-login = "*"
+flask-migrate = "*"
+faker = "*"
 
 [dev-packages]
 watchdog = "*"
