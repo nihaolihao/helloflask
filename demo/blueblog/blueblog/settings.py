@@ -1,6 +1,10 @@
 import os
 import sys
 
+# __file__ Python内置变量，表示当前执行脚本的完整路径(包括文件名)
+# os.path.dirname(__file__) 返回当前脚本所在目录的路径(去掉文件名)
+# os.path.dirname() 嵌套调用，返回上一级目录的路径
+# os.path.abspath() 返回当前脚本所在目录的绝对路径
 basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 # SQLite URI compatible
@@ -29,12 +33,12 @@ class BaseConfig(object):
     MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
     MAIL_DEFAULT_SENDER = ('Bluelog Admin', MAIL_USERNAME)
 
-    BLUELOG_EMAIL = os.getenv('BLUELOG_EMAIL')
-    BLUELOG_POST_PER_PAGE = 10
+    BLUELOG_EMAIL = os.getenv('BLUEBLOG_EMAIL')
+    BLUELOG_POST_PER_PAGE = 10  # 每页文章数
     BLUELOG_MANAGE_POST_PER_PAGE = 15
     BLUELOG_COMMENT_PER_PAGE = 15
     # ('theme name', 'display name')
-    BLUELOG_THEMES = {'perfect_blue': 'Perfect Blue', 'black_swan': 'Black Swan'}
+    BLUELOG_THEMES = {'perfect_blue': 'Perfect Blue', 'black_swan': 'Black Swan'}   # 博客主题样式
     BLUELOG_SLOW_QUERY_THRESHOLD = 1
 
     BLUELOG_UPLOAD_PATH = os.path.join(basedir, 'uploads')

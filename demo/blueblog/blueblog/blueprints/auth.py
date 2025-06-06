@@ -5,6 +5,8 @@ from blueblog.forms import LoginForm
 from blueblog.models import Admin
 from blueblog.utils import redirect_back
 
+# static_folder 指定静态文件目录，template_folder 指定模板文件目录
+# static_url_path 指定静态文件访问路径，url_prefix 指定蓝本访问路径
 auth_bp = Blueprint('auth', __name__)
 
 @auth_bp.route('/login', methods=['GET', 'POST'])

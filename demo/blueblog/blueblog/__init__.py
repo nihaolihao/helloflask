@@ -24,15 +24,17 @@ def create_app(config_name=None):
 
     app = Flask('blueblog')
     app.config.from_object(config[config_name])
+    app.jinja_env.trim_blocks = True
+    app.jinja_env.lstrip_blocks = True
 
-    register_logging(app)
-    register_extensions(app)
-    register_blueprints(app)
-    register_commands(app)
-    register_errors(app)
-    register_shell_context(app)
-    register_template_context(app)
-    # register_request_handlers(app)
+    register_logging(app)   # 注册日志处理器
+    register_extensions(app)    # 注册扩展（扩展初始化）
+    register_blueprints(app)    # 注册蓝图
+    register_commands(app)      # 注册命令
+    register_errors(app)        # 注册错误处理器
+    register_shell_context(app)   # 注册shell上下文 
+    register_template_context(app)   # 注册模板上下文
+    # register_request_handlers(app) # 注册请求处理器
     return app
 
 
@@ -84,6 +86,7 @@ def register_extensions(app):
 
 def register_blueprints(app):
     app.register_blueprint(blog_bp)
+    # url_prefix 添加前缀，subdomain 添加子域名
     app.register_blueprint(admin_bp, url_prefix='/admin')
     app.register_blueprint(auth_bp, url_prefix='/auth')
 

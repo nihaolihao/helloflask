@@ -3560,3 +3560,167 @@ Traceback (most recent call last):
   File "C:\Users\lihao\Desktop\Flask\Á·Ï°demo\helloflask\blueblog\blueblog\blueprints\admin.py", line 118, in manage_comment
     pagination = filtered_comments.order_by(Comment.timestamp.desc()).paginate(page, per_page=per_page)
 TypeError: Query.paginate() takes 1 positional argument but 2 positional arguments (and 1 keyword-only argument) were given
+2025-06-05 17:39:19,995 - blueblog - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\engine\base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\engine\default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: post
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\lihao\Desktop\Flask\Á·Ï°demo\helloflask\demo\blueblog\blueblog\blueprints\blog.py", line 17, in index
+    pagination = Post.query.order_by(Post.timestamp.desc()).paginate(
+        page=page, per_page=per_page
+        )
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\flask_sqlalchemy\query.py", line 98, in paginate
+    return QueryPagination(
+        query=self,
+    ...<4 lines>...
+        count=count,
+    )
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\flask_sqlalchemy\pagination.py", line 72, in __init__
+    items = self._query_items()
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\flask_sqlalchemy\pagination.py", line 358, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\orm\query.py", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ~~~~~~~~~~^^
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\orm\query.py", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+        params,
+        ^^^^^^^
+        execution_options={"_sa_orm_load_options": self.load_options},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        statement,
+        ^^^^^^^^^^
+    ...<4 lines>...
+        _add_event=_add_event,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<4 lines>...
+        conn,
+        ^^^^^
+    )
+    ^
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\orm\context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+        statement, params or {}, execution_options=execution_options
+    )
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\engine\base.py", line 1415, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\engine\base.py", line 1637, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\engine\base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\engine\base.py", line 1982, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\engine\base.py", line 2351, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\engine\base.py", line 1963, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\sqlalchemy\engine\default.py", line 943, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: post
+[SQL: SELECT post.id AS post_id, post.title AS post_title, post.body AS post_body, post.timestamp AS post_timestamp, post.can_comment AS post_can_comment, post.category_id AS post_category_id 
+FROM post ORDER BY post.timestamp DESC
+ LIMIT ? OFFSET ?]
+[parameters: (10, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-06-06 09:56:34,727 - blueblog - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\lihao\Desktop\Flask\Á·Ï°demo\helloflask\demo\blueblog\blueblog\blueprints\blog.py", line 21, in index
+    return render_template('blog/index.html', pagination=pagination, posts=posts)
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\lihao\Desktop\Flask\Á·Ï°demo\helloflask\demo\blueblog\blueblog\templates\blog\index.html", line 2, in top-level template code
+    {% from 'bootstrap/pagination.html' import render_pager %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lihao\Desktop\Flask\Á·Ï°demo\helloflask\demo\blueblog\blueblog\templates\base.html", line 83, in top-level template code
+    {% block content %}{% endblock content %}
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lihao\Desktop\Flask\Á·Ï°demo\helloflask\demo\blueblog\blueblog\templates\blog\index.html", line 15, in block 'content'
+    <div class="page-footer">{{ render_pagination(pagination) }}</div>
+    ^^^^^^^^^
+  File "C:\Users\lihao\.virtualenvs\helloflask-1iwn5SJs\Lib\site-packages\jinja2\utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'render_pagination' is undefined

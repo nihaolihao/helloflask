@@ -39,6 +39,7 @@ class Post(db.Model):
     title = db.Column(db.String(100))
     body = db.Column(db.Text)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow,index=True)
+    
     can_comment = db.Column(db.Boolean, default=True)
 
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
@@ -52,7 +53,9 @@ class Comment(db.Model):
     email = db.Column(db.String(254))
     site = db.Column(db.String(255))
     body = db.Column(db.Text)
+    # from_admin 用来判断评论是否是管理员的评论
     from_admin = db.Column(db.Boolean, default=False)
+    # reviewed 用来判断评论是否已经审核
     reviewed = db.Column(db.Boolean, default=False)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
 
