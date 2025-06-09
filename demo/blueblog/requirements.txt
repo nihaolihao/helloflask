@@ -1,5 +1,5 @@
 bootstrap_flask==2.5.0
-click==8.2.1
+click==8.1.8
 Faker==37.3.0
 Flask==3.1.1
 Flask_CKEditor==1.0.0
