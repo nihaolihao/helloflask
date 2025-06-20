@@ -1,7 +1,7 @@
-import click
-from flask import Flask
+import click    # 添加click命令
+from flask import Flask # flask程序
 
-app = Flask(__name__)
+app = Flask(__name__) # 程序实例,Python会根据所处的模块来赋予__name__变量相应的值
 
 @app.route('/')
 def index():
